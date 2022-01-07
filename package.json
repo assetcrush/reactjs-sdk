@@ -1,38 +1,40 @@
 {
-  "name": "assetcrush-react-sdk",
-  "version": "0.1.0",
-  "private": true,
-  "dependencies": {
-    "@testing-library/jest-dom": "^5.16.1",
-    "@testing-library/react": "^12.1.2",
-    "@testing-library/user-event": "^13.5.0",
-    "react": "^17.0.2",
-    "react-dom": "^17.0.2",
-    "react-scripts": "5.0.0",
-    "web-vitals": "^2.1.2"
-  },
+  "name": "@fawazahmed/react-native-read-more",
+  "version": "0.0.1",
+  "description": "A simple react native library to show large blocks of text in a condensed manner with the ability to collapse and expand.",
+  "main": "index.js",
   "scripts": {
-    "start": "react-scripts start",
-    "build": "react-scripts build",
-    "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "eslintConfig": {
-    "extends": [
-      "react-app",
-      "react-app/jest"
-    ]
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/fawaz-ahmed/asset-crush-reactjs-sdk"
   },
-  "browserslist": {
-    "production": [
-      ">0.2%",
-      "not dead",
-      "not op_mini all"
-    ],
-    "development": [
-      "last 1 chrome version",
-      "last 1 firefox version",
-      "last 1 safari version"
-    ]
+  "keywords": [
+    "react-native-read-more",
+    "react-native-component",
+    "react-native",
+    "read",
+    "more",
+    "less",
+    "text",
+    "react",
+    "react native",
+    "mobile",
+    "ios",
+    "android",
+    "ui"
+  ],
+  "author": {
+    "name": "Fawaz Ahmed",
+    "email": "fawaz_ahmed@live.com"
+  },
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/fawaz-ahmed/asset-crush-reactjs-sdk/issues"
+  },
+  "homepage": "https://github.com/fawaz-ahmed/asset-crush-reactjs-sdk#readme",
+  "publishConfig": {
+    "registry": "https://registry.npmjs.org/"
   }
 }
