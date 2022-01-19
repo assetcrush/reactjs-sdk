@@ -10,6 +10,8 @@ const ImageResize = ({ url, width, height, ...props }) => {
   }&height=${height || "auto"}&original_uri=${url}`;
 
   useEffect(() => {
+    if (!url) return;
+
     fetch(imageUrl, { headers: { key } })
       .then((r) => r.blob())
       .then((d) => {
