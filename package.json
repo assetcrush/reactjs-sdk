@@ -1,6 +1,6 @@
 {
   "name": "@assetcrush/reactjs-sdk",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "A simple reactjs library to resize image on fly",
   "main": "index.js",
   "scripts": {
@@ -11,19 +11,15 @@
     "url": "git+https://github.com/assetcrush/reactjs-sdk"
   },
   "keywords": [
-    "react-native-read-more",
-    "react-native-component",
-    "react-native",
-    "read",
-    "more",
-    "less",
-    "text",
+    "reactjs-sdk",
+    "reactjs",
     "react",
-    "react native",
-    "mobile",
-    "ios",
-    "android",
-    "ui"
+    "assetcrush",
+    "resize",
+    "image-resize",
+    "image",
+    "assets",
+    "on-the-fly"
   ],
   "author": {
     "name": "assetcrush",
@@ -33,7 +29,7 @@
   "bugs": {
     "url": "https://github.com/assetcrush/reactjs-sdk/issues"
   },
-  "homepage": "https://github.com/assetcrush/reactjs-sdk#readme",
+  "homepage": "https://assetcrush.com/en/docs/reactjs-sdk",
   "publishConfig": {
     "registry": "https://registry.npmjs.org/"
   }
