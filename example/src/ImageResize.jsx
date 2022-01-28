@@ -12,7 +12,7 @@ const ImageResize = ({ url, width, height, ...props }) => {
   useEffect(() => {
     if (!url) return;
 
-    fetch(imageUrl, { headers: { assetcrush_key: key } })
+    fetch(imageUrl, { headers: { "assetcrush-key": key } })
       .then((r) => r.blob())
       .then((d) => {
         setImage(window.URL.createObjectURL(d));
