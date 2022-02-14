@@ -7,7 +7,7 @@ const ImageResize = ({ url, width, height, ...props }) => {
 
   const imageUrl = `https://service.assetcrush.com?width=${
     width || "auto"
-  }&height=${height || "auto"}&original_uri=${url}`;
+  }&height=${height || "auto"}&original_uri=${encodeURIComponent(url)}`;
 
   useEffect(() => {
     if (!url) return;
