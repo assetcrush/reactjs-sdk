@@ -82,4 +82,4 @@ yarn start
 
 ## Seeing issues or any feedback or feature suggest ?
 
-Create an [issue](https://github.com/fawaz-ahmed/asset-crush-reactjs-sdk/issues) with github.
+Create an [issue](https://github.com/assetcrush/reactjs-sdk.git/issues) with github.
