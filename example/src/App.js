@@ -2,7 +2,10 @@ import React from "react";
 import ImageCrush from "./ImageCrush";
 import { setKey } from "./key";
 
-setKey("123");
+setKey("test-key");
+
+const testUrl =
+  "https://cdn.pixabay.com/photo/2021/12/11/07/59/hotel-6862159__340.jpg";
 
 function App() {
   return (
