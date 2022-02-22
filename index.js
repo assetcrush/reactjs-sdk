@@ -1,4 +1,4 @@
-import ImageResize from "./example/src/ImageResize";
+import ImageCrush from "./example/src/ImageCrush";
 import { setKey } from "./example/src/key";
 
-export default { ImageResize, setKey };
+export default { ImageCrush, setKey };

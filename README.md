@@ -1,10 +1,23 @@
-![NPM Downloads](https://img.shields.io/npm/dm/@fawazahmed/react-native-read-more) ![NPM License](https://img.shields.io/npm/l/@fawazahmed/react-native-read-more) ![NPM Version](https://img.shields.io/npm/v/@fawazahmed/react-native-read-more)
+![NPM License](https://img.shields.io/npm/l/@assetcrush/reactjs-sdk) ![NPM Version](https://img.shields.io/npm/v/@assetcrush/reactjs-sdk)
 
 #### Please :star: it, thanks :thumbsup:
 
 # assetcrush
 
 A simple reactjs library to resize image on fly.
+
+## What is assetcrush ?
+
+assetcrush is an image resize service for on the fly dynamic resize. If
+your users are uploading images of various sizes and then you are
+consuming those images on different devices then this service is ideal
+for your use. Since every device has different dimensions our sdk will
+make sure to get the rightly resized image for you via assetcrush resize
+service.
+
+## Getting started
+
+[https://assetcrush.com/en/docs/getting-started](https://assetcrush.com/en/docs/getting-started)
 
 ### Installation
 
@@ -22,14 +35,14 @@ yarn add @assetcrush/reactjs-sdk
 
 ```javascript
 import React from "react";
-import { ImageResize, setKey } from "@assetcrush/reactjs-sdk";
+import { ImageCrush, setKey } from "@assetcrush/reactjs-sdk";
 
 setKey("123");
 
 function App() {
   return (
     <div style={{ width: 100, height: 100 }}>
-      <ImageResize
+      <ImageCrush
         url={
           "https://cdn.pixabay.com/photo/2021/12/11/07/59/hotel-6862159__340.jpg"
         }

@@ -1,7 +1,7 @@
 import React, { memo, useEffect, useState } from "react";
 import { getKey } from "./key";
 
-const ImageResize = ({ url, width, height, ...props }) => {
+const ImageCrush = ({ url, width, height, ...props }) => {
   const [image, setImage] = useState("");
   const key = getKey();
 
@@ -22,4 +22,4 @@ const ImageResize = ({ url, width, height, ...props }) => {
   return <img src={image} {...props} />;
 };
 
-export default memo(ImageResize);
+export default memo(ImageCrush);
