@@ -1,6 +1,5 @@
 ![NPM License](https://img.shields.io/npm/l/@assetcrush/reactjs-sdk) ![NPM Version](https://img.shields.io/npm/v/@assetcrush/reactjs-sdk)
 
-#### Please :star: it, thanks :thumbsup:
 
 # assetcrush
 
