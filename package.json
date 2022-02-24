@@ -1,10 +1,11 @@
 {
   "name": "@assetcrush/reactjs-sdk",
-  "version": "0.0.6",
+  "version": "0.0.7",
   "description": "A simple reactjs library to resize image on fly",
-  "main": "index.js",
+  "main": "dist/index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "babel example/src/modules/** -d ./dist"
   },
   "repository": {
     "type": "git",
@@ -32,5 +33,11 @@
   "homepage": "https://assetcrush.com/en/docs/reactjs-sdk",
   "publishConfig": {
     "registry": "https://registry.npmjs.org/"
+  },
+  "devDependencies": {
+    "@babel/cli": "^7.17.6",
+    "@babel/core": "^7.17.5",
+    "@babel/preset-env": "^7.16.11",
+    "@babel/preset-react": "^7.16.7"
   }
 }

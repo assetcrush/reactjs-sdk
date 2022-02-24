@@ -4,6 +4,8 @@ npm-debug.log
 
 # Dependency directory
 node_modules
+package-lock.json
+example/
 
 # Runtime data
 tmp
