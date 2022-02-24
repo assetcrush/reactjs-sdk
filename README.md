@@ -21,7 +21,7 @@ service.
 ### Installation
 
 ```
-npm i @assetcrush/reactjs-sdk --save
+npm i -S @assetcrush/reactjs-sdk
 ```
 
 or with yarn
