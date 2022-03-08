@@ -24,7 +24,7 @@ Place this in your index.js file, this needs to be loaded once at initialization
 <code>
 
 ```javascript
-import { setKey } from "./modules";
+import { setKey } from "@assetcrush/reactjs-sdk";
 
 setKey("test-key");
 ```
