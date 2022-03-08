@@ -4,8 +4,8 @@ A simple reactjs library to resize image on fly.
 
 ### Installation
 
-```javascript
-npm i @assetcrush/reactjs-sdk --save
+```
+npm i -S @assetcrush/reactjs-sdk
 ```
 
 or with yarn
