@@ -18,7 +18,8 @@ yarn add @assetcrush/reactjs-sdk
 
 ### setKey
 
-Place this in your index.js file, this needs to be loaded once at initialization. Get your key by signing up on [console.assetcrush.com](https://console.assetcrush.com/)
+Place this in your index.js file, this needs to be loaded once at initialization. Get your key by signing up on
+[console.assetcrush.com](https://console.assetcrush.com/)
 
 <code>
 
@@ -38,7 +39,7 @@ Basic usage of Imagecrush pass width, height and url and let the magic happens.
 
 ```javascript
 import React from "react";
-import { ImageCrush } from "./modules";
+import { ImageCrush } from "@assetcrush/reactjs-sdk";
 
 const testUrl =
   "https://cdn.pixabay.com/photo/2021/12/11/07/59/hotel-6862159__340.jpg";
@@ -64,7 +65,7 @@ Its the more adoptive method to use you don't need to pass width and height it w
 
 ```javascript
 import React from "react";
-import { ImageCrushAdoptive } from "./modules";
+import { ImageCrushAdoptive } from "@assetcrush/reactjs-sdk";
 
 const testUrl =
   "https://cdn.pixabay.com/photo/2021/12/11/07/59/hotel-6862159__340.jpg";
@@ -108,7 +109,7 @@ Adoptive method to use this sdk is wrapping it inside div and using ref for resp
 
 ```javascript
 import React, { useRef } from "react";
-import { ImageCrush } from "./modules";
+import { ImageCrush } from "@assetcrush/reactjs-sdk";
 
 const testUrl =
   "https://cdn.pixabay.com/photo/2021/12/11/07/59/hotel-6862159__340.jpg";
