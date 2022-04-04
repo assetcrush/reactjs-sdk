@@ -47,7 +47,7 @@ const testUrl =
 function App() {
   return (
     <div style={{ width: 50, height: 50 }}>
-      <ImageCrush url={testUrl} width={50} height={50} />
+      <ImageCrush onLoad={onLoad} onError={onError} url={testUrl} width={50} height={50} />
     </div>
   );
 }
@@ -73,7 +73,7 @@ const testUrl =
 function App() {
   return (
     <div style={{ width: 50, height: 50 }}>
-      <ImageCrushAdoptive url={testUrl} />
+      <ImageCrushAdoptive onLoad={onLoad} onError={onError} url={testUrl} />
     </div>
   );
 }
@@ -120,6 +120,8 @@ function App() {
   return (
     <div ref={useRef()} style={{ width: 50, height: 50 }}>
       <ImageCrush
+        onLoad={onLoad} 
+        onError={onError}
         url={testUrl}
         width={ref.current?.clientWidth}
         height={ref.current?.clientHeight}
