@@ -2,6 +2,15 @@
 
 A simple reactjs library to resize image on fly.
 
+## What is assetcrush ?
+
+[assetcrush](https://assetcrush.com/) is an image resize service for on the fly dynamic resize. If
+your users are uploading images of various sizes and then you are
+consuming those images on different devices then this service is ideal
+for your use. Since every device has different dimensions our sdk will
+make sure to get the rightly resized image for you via assetcrush resize
+service.
+
 ### Installation
 
 ```
@@ -47,7 +56,7 @@ const testUrl =
 function App() {
   return (
     <div style={{ width: 50, height: 50 }}>
-      <ImageCrush onLoad={onLoad} onError={onError} url={testUrl} width={50} height={50} />
+      <ImageCrush  url={testUrl} width={50} height={50} />
     </div>
   );
 }
@@ -73,7 +82,7 @@ const testUrl =
 function App() {
   return (
     <div style={{ width: 50, height: 50 }}>
-      <ImageCrushAdoptive onLoad={onLoad} onError={onError} url={testUrl} />
+      <ImageCrushAdoptive  url={testUrl} />
     </div>
   );
 }
@@ -90,6 +99,15 @@ export default App;
 | `url`    | `string` | yes      | image url       |
 | `width`  | `string` | no       | width of image  |
 | `height` | `string` | no       | height of image |
+| `onLoad` | `func` | no       | when image successfully loads |
+| `onError` | `func` | no       | when image fails to load |
+| `animated` | `bool` | no       | image fade in effect |
+| `reloadIconColor` | `string` | no       | color of reload icon if image fails |
+| `spinnerIcon` | `string` | no       | spinner component icon while image loads |
+| `spinnerColor` | `string` | no       | color of spinner |
+| `isSpinner` | `bool` | no       | render spinner while image loads or not |
+| `onError` | `func` | no       | if image fails to load (returns error details) |
+| `onLoad` | `func` | no       | if image loads successfully (returns image headers) |
 
 Any additional props are passed down to underlying `<img />` element.
 
@@ -100,35 +118,6 @@ git clone https://github.com/assetcrush/reactjs-sdk.git
 cd reactjs-sdk/example
 yarn install # or npm install
 ```
-
-## Adoptive resize sample
-
-Adoptive method to use this sdk is wrapping it inside div and using ref for responsive width and height
-
-<code>
-
-```javascript
-import React, { useRef } from "react";
-import { ImageCrush } from "@assetcrush/reactjs-sdk";
-
-const testUrl =
-  "https://cdn.pixabay.com/photo/2021/12/11/07/59/hotel-6862159__340.jpg";
-
-function App() {
-  const ref = useRef();
-
-  return (
-    <div ref={useRef()} style={{ width: 50, height: 50 }}>
-      <ImageCrush
-        onLoad={onLoad} 
-        onError={onError}
-        url={testUrl}
-        width={ref.current?.clientWidth}
-        height={ref.current?.clientHeight}
-      />
-    </div>
-  );
-}
 
 export default App;
 ```
