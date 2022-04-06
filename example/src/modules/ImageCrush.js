@@ -1,27 +1,43 @@
-import React, { memo, useEffect, useState } from "react";
+import React, { memo, useCallback, useEffect, useState } from "react";
 import { ErrorRender } from "./ErrorRender/ErrorRender";
 import { getKey } from "./key";
 import { Spinner } from "./Spinner/Spinner";
-import './styles.css'
+import "./styles.css";
 
 const baseServiceUrl = "https://service.assetcrush.com";
 
-const ImageCrush = ({ onError = () => null, onLoad = () => null, url, width, height, acEnv = 'production', ...props }) => {
+const ImageCrush = ({
+  animated = true,
+  reloadIconColor,
+  reloadIcon,
+  spinnerIcon,
+  spinnerColor = "#fff",
+  isSpinner = true,
+  onError = () => null,
+  onLoad = () => null,
+  url,
+  width,
+  height,
+  acEnv = "production",
+  ...props
+}) => {
   const [image, setImage] = useState("");
-  const [isError, setIsError] = useState(false)
+  const [isError, setIsError] = useState(false);
 
-  const handleError = (e) => {
-    onError(e);
-    setIsError(true)
-  }
+  const handleError = useCallback(
+    (e) => {
+      onError(e);
+      setIsError(true);
+    },
+    [setIsError]
+  );
 
-  const handleRetry = () => {
-    fetchImage()
-  }
+  const handleRetry = useCallback(() => {
+    fetchImage();
+  }, [setIsError]);
 
-  const fetchImage = () => {
-
-    setIsError(false)
+  const fetchImage = useCallback(() => {
+    setIsError(false);
 
     const _width = width || "auto";
     const _height = height || "auto";
@@ -29,31 +45,46 @@ const ImageCrush = ({ onError = () => null, onLoad = () => null, url, width, hei
       url
     )}`;
     const key = getKey();
+    let headers = {};
 
-    fetch(imageUrl, { headers: { "assetcrush-key": key, 'ac-env': acEnv } })
+    fetch("imageUrl", { headers: { "assetcrush-key": key, "ac-env": acEnv } })
       .then((r) => {
-        onLoad(r.headers)
-        return r.blob()
+        headers = r.headers;
+        return r.blob();
       })
       .then((d) => {
         if (typeof window === undefined) return;
-        if (!d.type.includes('image')) {
-          handleError();
-          return;
+        if (!d.type.includes("image")) {
+          throw new Error("Object is not a valid image");
         }
         setImage(window.URL.createObjectURL(d));
-      }).catch(handleError);
-  }
+        return Promise.resolve();
+      })
+      .then(() => onLoad(headers))
+      .catch(handleError);
+  }, [setIsError]);
 
   useEffect(() => {
     if (!url) return;
-    fetchImage()
+    fetchImage();
   }, [url, width, height]);
 
-  if (isError) return <ErrorRender handleRetry={handleRetry} />
-  if (!image) return <Spinner />
+  if (isError)
+    return (
+      <ErrorRender
+        width={width}
+        height={height}
+        reloadIconColor={reloadIconColor}
+        icon={reloadIcon}
+        handleRetry={handleRetry}
+      />
+    );
+  if (image)
+    return (
+      <>{isSpinner && <Spinner icon={spinnerIcon} color={spinnerColor} />}</>
+    );
 
-  return <img className={'fade-in-Image'} src={image} {...props} />;
+  return <img className={animated && "fade-in-Image"} src={image} {...props} />;
 };
 
 export default memo(ImageCrush);
