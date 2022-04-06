@@ -66,6 +66,27 @@ export default App;
 
 </code>
 
+
+### Props
+
+| Prop     | Type     | Required | Note            |
+| -------- | -------- | -------- | --------------- |
+| `url`    | `string` | yes      | image url       |
+| `width`  | `string` | no       | width of image  |
+| `height` | `string` | no       | height of image |
+| `onLoad` | `func` | no       | when image successfully loads |
+| `onError` | `func` | no       | when image fails to load |
+| `animated` | `bool` | no       | image fade in effect |
+| `reloadIconColor` | `string` | no       | color of reload icon if image fails |
+| `spinnerIcon` | `string` | no       | spinner component icon while image loads |
+| `spinnerColor` | `string` | no       | color of spinner |
+| `isSpinner` | `bool` | no       | render spinner while image loads or not |
+| `onError` | `func` | no       | if image fails to load (returns error details) |
+| `onLoad` | `func` | no       | if image loads successfully (returns image headers) |
+
+Any additional props are passed down to underlying `<img />` element.
+
+
 ### ImageCrushAdoptive
 
 Its the more adoptive method to use you don't need to pass width and height it will inherit width and height from outermost wrapped div
@@ -96,20 +117,12 @@ export default App;
 
 | Prop     | Type     | Required | Note            |
 | -------- | -------- | -------- | --------------- |
-| `url`    | `string` | yes      | image url       |
-| `width`  | `string` | no       | width of image  |
-| `height` | `string` | no       | height of image |
-| `onLoad` | `func` | no       | when image successfully loads |
-| `onError` | `func` | no       | when image fails to load |
-| `animated` | `bool` | no       | image fade in effect |
-| `reloadIconColor` | `string` | no       | color of reload icon if image fails |
-| `spinnerIcon` | `string` | no       | spinner component icon while image loads |
-| `spinnerColor` | `string` | no       | color of spinner |
-| `isSpinner` | `bool` | no       | render spinner while image loads or not |
-| `onError` | `func` | no       | if image fails to load (returns error details) |
-| `onLoad` | `func` | no       | if image loads successfully (returns image headers) |
+| `backgroundColor`    | `string` | no      | color of background layer of image       |
+| `url`  | `string` | yes       | image url   |
+| `debounce` | `number` | no       | image layout handler debounce |
+| `wrapperStyle` | `object` | no       | style object for outermost div |
 
-Any additional props are passed down to underlying `<img />` element.
+Any additional props are passed down to underlying `<ImageCrush />` component.
 
 ## Run example
 
@@ -117,16 +130,14 @@ Any additional props are passed down to underlying `<img />` element.
 git clone https://github.com/assetcrush/reactjs-sdk.git
 cd reactjs-sdk/example
 yarn install # or npm install
-```
+
 
 export default App;
 ```
 
-</code>
-
 ## to run with npm
-
-```javascript
+```
+javascript
 npm start
 ```
 
@@ -135,6 +146,10 @@ npm start
 ```javascript
 yarn start
 ```
+## Testing with Jest
+
+Make sure to add `jest.useFakeTimers();` to your test file.
+See [Stackoverflow](https://stackoverflow.com/questions/50793885/referenceerror-you-are-trying-to-import-a-file-after-the-jest-environment-has) post and [jest timer mocks](https://jestjs.io/docs/timer-mocks)
 
 ## Seeing issues or any feedback or feature suggest ?
 
