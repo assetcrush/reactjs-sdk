@@ -11,7 +11,7 @@ export const Spinner = ({icon:Icon, backgroundColor = 'gray'}) => {
     <>
     <style>
       {`
-      .lds-roller div:after {
+      .assetcrush-lds-roller div:after {
         content: " ";
         display: block;
         position: absolute;
@@ -23,7 +23,7 @@ export const Spinner = ({icon:Icon, backgroundColor = 'gray'}) => {
       }
       `}
     </style>
-    <div className="lds-roller">
+    <div className="assetcrush-lds-roller">
       <div></div>
       <div></div>
       <div></div>

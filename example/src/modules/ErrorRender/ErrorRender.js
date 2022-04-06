@@ -7,13 +7,13 @@ export const ErrorRender = ({ reloadIconColor = 'gray', handleRetry = () => {}, 
     const _handleRetry = useCallback(() => {
         clearTimeout(handler.current)
 
-        handler.current = setTimeout(handleRetry, 1000);
+        handler.current = setTimeout(handleRetry, 300);
     }, [handleRetry])
 
 
     if (Icon) return <div onClick={_handleRetry}>{Icon}</div>
     return (
-        <span style={{color: reloadIconColor,fontSize: height / 2}} onClick={_handleRetry} className="reload">
+        <span style={{color: reloadIconColor,fontSize: height / 2}} onClick={_handleRetry} className="assetcrush-reload">
         &#x21bb;
             </span>
     )

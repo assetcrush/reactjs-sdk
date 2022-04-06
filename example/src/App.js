@@ -8,7 +8,7 @@ const testUrl =
 
 function App() {
   return (
-    <div style={{ width: 50, height: 50 }}>
+    <div style={{ width: 250, height: 250 }}>
       <ImageCrushAdoptive url={testUrl} />
     </div>
   );

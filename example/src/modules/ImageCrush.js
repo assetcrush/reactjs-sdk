@@ -47,7 +47,7 @@ const ImageCrush = ({
     const key = getKey();
     let headers = {};
 
-    fetch("imageUrl", { headers: { "assetcrush-key": key, "ac-env": acEnv } })
+    fetch(imageUrl, { headers: { "assetcrush-key": key, "ac-env": acEnv } })
       .then((r) => {
         headers = r.headers;
         return r.blob();
@@ -79,12 +79,12 @@ const ImageCrush = ({
         handleRetry={handleRetry}
       />
     );
-  if (image)
+  if (!image)
     return (
       <>{isSpinner && <Spinner icon={spinnerIcon} color={spinnerColor} />}</>
     );
 
-  return <img className={animated && "fade-in-Image"} src={image} {...props} />;
+  return <img className={animated && "assetcrush-fade-in-Image"} src={image} {...props} />;
 };
 
 export default memo(ImageCrush);
