@@ -1,11 +1,11 @@
 {
   "name": "@assetcrush/reactjs-sdk",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "A simple reactjs library to resize image on fly",
   "main": "dist/index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "babel example/src/modules/** -d ./dist"
+    "build": "babel example/src/modules/ -d ./dist --copy-files"
   },
   "repository": {
     "type": "git",

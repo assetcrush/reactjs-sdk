@@ -1,4 +1,4 @@
-import React, { memo, useCallback, useEffect, useState } from "react";
+import React, { useCallback, useEffect, useState } from "react";
 import { ErrorRender } from "./ErrorRender/ErrorRender";
 import { getKey } from "./key";
 import { Spinner } from "./Spinner/Spinner";
@@ -19,6 +19,7 @@ const ImageCrush = ({
   width,
   height,
   acEnv = "production",
+  alt = '',
   ...props
 }) => {
   const [image, setImage] = useState("");
@@ -29,7 +30,7 @@ const ImageCrush = ({
       onError(e);
       setIsError(true);
     },
-    [setIsError]
+    [onError, setIsError]
   );
 
   const fetchImage = useCallback(() => {
@@ -58,7 +59,7 @@ const ImageCrush = ({
       })
       .then(() => onLoad(headers))
       .catch(handleError);
-  }, [setIsError]);
+  }, [acEnv, handleError, height, onLoad, url, width, setIsError, setImage]);
 
   
   const handleRetry = useCallback(() => {
@@ -68,9 +69,10 @@ const ImageCrush = ({
   useEffect(() => {
     if (!url) return;
     fetchImage();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [url, width, height]);
 
-  if (isError)
+  if (isError) {
     return (
       <ErrorRender
         width={width}
@@ -80,12 +82,22 @@ const ImageCrush = ({
         handleRetry={handleRetry}
       />
     );
-  if (!image)
+  }
+
+  if (!image) {
     return (
       <>{!hideSpinner && <Spinner icon={spinnerIcon} color={spinnerColor} />}</>
     );
+  }
 
-  return <img className={animated && "assetcrush-fade-in-Image"} src={image} {...props} />;
+  return (
+    <img
+      className={animated && "assetcrush-fade-in-Image"}
+      src={image}
+      alt={alt}
+      {...props}
+    />
+  );
 };
 
-export default memo(ImageCrush);
+export default React.memo(ImageCrush);

@@ -1,7 +1,5 @@
 import React, {
-  memo,
   useCallback,
-  useEffect,
   useLayoutEffect,
   useRef,
   useState,
@@ -9,7 +7,14 @@ import React, {
 import ImageCrush from "./ImageCrush";
 
 const styles = (backgroundColor) =>  ({
- wrapperStyle: { height: "inherit", width: "inherit", background: backgroundColor, display:'flex', alignItems:'center', justifyContent: 'center' }
+  wrapperStyle: {
+    background: backgroundColor,
+    width: '100%',
+    height: '100%',
+    display:'flex',
+    alignItems:'center',
+    justifyContent: 'center'
+  }
 })
 
 const ImageCrushAdoptive = ({  backgroundColor = '#f9f9f9', url, debounce = 100, wrapperStyle, ...restProps }) => {
@@ -28,12 +33,13 @@ const ImageCrushAdoptive = ({  backgroundColor = '#f9f9f9', url, debounce = 100,
       setWidth(_width);
       setHeight(_height);
     }
-  }, [setWidth,setHeight, setCurrentHeight])
+  }, [setWidth,setHeight, setCurrentHeight, width, height])
 
   useLayoutEffect(() => {
    const handler = setTimeout(onLayout, debounce);
 
    return () => clearTimeout(handler);
+   // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
 
@@ -46,4 +52,4 @@ const ImageCrushAdoptive = ({  backgroundColor = '#f9f9f9', url, debounce = 100,
   );
 };
 
-export default memo(ImageCrushAdoptive);
+export default React.memo(ImageCrushAdoptive);
