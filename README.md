@@ -56,7 +56,7 @@ const testUrl =
 function App() {
   return (
     <div style={{ width: 50, height: 50 }}>
-      <ImageCrush  url={testUrl} width={50} height={50} />
+      <ImageCrush url={testUrl} width={50} height={50} />
     </div>
   );
 }
@@ -74,13 +74,11 @@ export default App;
 | `url`    | `string` | yes      | image url       |
 | `width`  | `string` | no       | width of image  |
 | `height` | `string` | no       | height of image |
-| `onLoad` | `func` | no       | when image successfully loads |
-| `onError` | `func` | no       | when image fails to load |
 | `animated` | `bool` | no       | image fade in effect |
 | `reloadIconColor` | `string` | no       | color of reload icon if image fails |
 | `spinnerIcon` | `string` | no       | spinner component icon while image loads |
 | `spinnerColor` | `string` | no       | color of spinner |
-| `isSpinner` | `bool` | no       | render spinner while image loads or not |
+| `hideSpinner` | `bool` | no       | render spinner while image loads or not |
 | `onError` | `func` | no       | if image fails to load (returns error details) |
 | `onLoad` | `func` | no       | if image loads successfully (returns image headers) |
 
@@ -103,7 +101,7 @@ const testUrl =
 function App() {
   return (
     <div style={{ width: 50, height: 50 }}>
-      <ImageCrushAdoptive  url={testUrl} />
+      <ImageCrushAdoptive url={testUrl} />
     </div>
   );
 }
@@ -118,11 +116,20 @@ export default App;
 | Prop     | Type     | Required | Note            |
 | -------- | -------- | -------- | --------------- |
 | `backgroundColor`    | `string` | no      | color of background layer of image       |
-| `url`  | `string` | yes       | image url   |
 | `debounce` | `number` | no       | image layout handler debounce |
 | `wrapperStyle` | `object` | no       | style object for outermost div |
+| `url`    | `string` | yes      | image url       |
+| `width`  | `string` | no       | width of image  |
+| `height` | `string` | no       | height of image |
+| `animated` | `bool` | no       | image fade in effect |
+| `reloadIconColor` | `string` | no       | color of reload icon if image fails |
+| `spinnerIcon` | `string` | no       | spinner component icon while image loads |
+| `spinnerColor` | `string` | no       | color of spinner |
+| `hideSpinner` | `bool` | no       | render spinner while image loads or not |
+| `onError` | `func` | no       | if image fails to load (returns error details) |
+| `onLoad` | `func` | no       | if image loads successfully (returns image headers) |
 
-Any additional props are passed down to underlying `<ImageCrush />` component.
+Any additional props are passed down to underlying `<img />` component.
 
 ## Run example
 
@@ -136,8 +143,7 @@ export default App;
 ```
 
 ## to run with npm
-```
-javascript
+```javascript
 npm start
 ```
 

@@ -12,7 +12,7 @@ const ImageCrush = ({
   reloadIcon,
   spinnerIcon,
   spinnerColor = "#fff",
-  isSpinner = true,
+  hideSpinner = false,
   onError = () => null,
   onLoad = () => null,
   url,
@@ -31,10 +31,6 @@ const ImageCrush = ({
     },
     [setIsError]
   );
-
-  const handleRetry = useCallback(() => {
-    fetchImage();
-  }, [setIsError]);
 
   const fetchImage = useCallback(() => {
     setIsError(false);
@@ -64,6 +60,11 @@ const ImageCrush = ({
       .catch(handleError);
   }, [setIsError]);
 
+  
+  const handleRetry = useCallback(() => {
+    fetchImage();
+  }, [fetchImage]);
+
   useEffect(() => {
     if (!url) return;
     fetchImage();
@@ -81,7 +82,7 @@ const ImageCrush = ({
     );
   if (!image)
     return (
-      <>{isSpinner && <Spinner icon={spinnerIcon} color={spinnerColor} />}</>
+      <>{!hideSpinner && <Spinner icon={spinnerIcon} color={spinnerColor} />}</>
     );
 
   return <img className={animated && "assetcrush-fade-in-Image"} src={image} {...props} />;

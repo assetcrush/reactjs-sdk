@@ -1,10 +1,6 @@
 import React from "react";
 import "./styles.css";
 
-const styles = (backgroundColor) =>  ({
-  wrapperStyle: { background: backgroundColor }
- })
-
 export const Spinner = ({icon:Icon, backgroundColor = 'gray'}) => {
   if (Icon) return Icon;
   return (
