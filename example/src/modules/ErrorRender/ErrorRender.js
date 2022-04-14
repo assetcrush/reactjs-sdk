@@ -18,7 +18,7 @@ export const ErrorRender = ({
   if (Icon) return <div onClick={_handleRetry}>{Icon}</div>;
   return (
     <span
-      style={{ color: reloadIconColor, fontSize: height / 2 }}
+      style={{ color: reloadIconColor, fontSize: height / 2 < 50 ? height / 2 : 50 }}
       onClick={_handleRetry}
       className="assetcrush-reload"
     >
