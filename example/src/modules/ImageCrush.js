@@ -20,6 +20,7 @@ const ImageCrush = ({
   height,
   acEnv = "production",
   alt = '',
+  headers = {},
   ...props
 }) => {
   const [image, setImage] = useState("");
@@ -44,7 +45,7 @@ const ImageCrush = ({
     const key = getKey();
     let headers = {};
 
-    fetch(imageUrl, { headers: { "assetcrush-key": key, "ac-env": acEnv } })
+    fetch(imageUrl, { headers: { "assetcrush-key": key, "ac-env": acEnv, ...headers } })
       .then((r) => {
         headers = r.headers;
         return r.blob();
