@@ -87,7 +87,8 @@ const ImageCrush = ({
 
   if (!image) {
     return (
-      <>{!hideSpinner && <Spinner icon={spinnerIcon} color={spinnerColor} />}</>
+      <>{!hideSpinner && <Spinner  width={width}
+      height={height} icon={spinnerIcon} color={spinnerColor} />}</>
     );
   }
 
