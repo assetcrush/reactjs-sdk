@@ -128,6 +128,7 @@ export default App;
 | `hideSpinner` | `bool` | no       | render spinner while image loads or not |
 | `onError` | `func` | no       | if image fails to load (returns error details) |
 | `onLoad` | `func` | no       | if image loads successfully (returns image headers) |
+| `headers` | `object` | no       | Custom headers for image  |
 
 Any additional props are passed down to underlying `<img />` component.
 
