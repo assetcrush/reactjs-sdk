@@ -45,7 +45,7 @@ const ImageCrush = ({
     const key = getKey() ? getKey() : acEnv !== "production" ? 'test-key' : '';
     let headers = {};
 
-    if (acEnv !== "production") {
+    if (process.env.NODE_ENV === "development" && key === '') {
       console.log(' Key is not present, please go to console.assetcrush.com and sign up to get one.')
     }
 
