@@ -42,14 +42,14 @@ const ImageCrush = ({
     const imageUrl = `${baseServiceUrl}?width=${_width}&height=${_height}&original_uri=${encodeURIComponent(
       url
     )}`;
-    const key = getKey() ? getKey() : acEnv !== "production" ? 'test-key' : '';
+    const key = getKey() ? getKey() : process.env.NODE_ENV === "development" ? 'test-key' : '';
     let headers = {};
 
     if (process.env.NODE_ENV === "development" && key === '') {
       console.log(' Key is not present, please go to console.assetcrush.com and sign up to get one.')
     }
 
-    fetch(imageUrl, { headers: { "assetcrush-key": key, "ac-env": acEnv, link: 'ali', ...headers } })
+    fetch(imageUrl, { headers: { "assetcrush-key": key, "ac-env": acEnv, ...headers } })
       .then((r) => {
         headers = r.headers;
         return r.blob();
